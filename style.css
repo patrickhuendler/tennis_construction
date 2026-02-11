@@ -1,0 +1,236 @@
+:root {
+    --green-deep: #0d2818;
+    --green-dark: #13461c;
+    --green-mid: #1a5c2e;
+    --green-bright: #2d8a4e;
+    --green-neon: #3dd86a;
+    --green-soft: #52c27a;
+    --cream: #f5f7f0;
+    --white-soft: rgba(255, 255, 255, 0.95);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--green-deep) 0%, var(--green-dark) 25%, var(--green-mid) 50%, var(--green-dark) 75%, var(--green-deep) 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 12s ease infinite;
+    color: var(--cream);
+    overflow-x: hidden;
+}
+
+@keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.noise-overlay {
+    position: fixed;
+    inset: 0;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Tennis court lines */
+.tennis-line {
+    position: fixed;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.06), transparent);
+    height: 1px;
+    z-index: 0;
+}
+
+.line-1 { top: 20%; left: 0; right: 0; animation: lineGlow 4s ease-in-out infinite; }
+.line-2 { top: 50%; left: 0; right: 0; animation: lineGlow 4s ease-in-out 1.3s infinite; }
+.line-3 { top: 80%; left: 0; right: 0; animation: lineGlow 4s ease-in-out 2.6s infinite; }
+
+@keyframes lineGlow {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.8; }
+}
+
+.container {
+    position: relative;
+    z-index: 2;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    text-align: center;
+}
+
+/* Logo */
+.logo-mark {
+    margin-bottom: 2rem;
+}
+
+.club-logo {
+    max-width: 280px;
+    height: auto;
+    image-rendering: high-quality;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    animation: ballFloat 4s ease-in-out infinite;
+}
+
+@keyframes ballFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+h1 {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    margin-bottom: 2.5rem;
+    color: var(--cream);
+}
+
+.loading-section {
+    width: 100%;
+    max-width: 320px;
+    margin-bottom: 1.5rem;
+}
+
+.loading-bar {
+    position: relative;
+    width: 100%;
+    height: 48px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid rgba(61, 216, 106, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loading-bar::after {
+    content: '';
+    position: absolute;
+    right: -8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 20px;
+    background: rgba(61, 216, 106, 0.5);
+    border-radius: 0 3px 3px 0;
+}
+
+.loading-text {
+    position: relative;
+    z-index: 2;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    color: var(--cream);
+}
+
+.loading-bar-fill {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 0;
+    background: linear-gradient(90deg, var(--green-mid), var(--green-neon));
+    border-radius: 6px;
+    animation: loadingFill 2s ease-in-out infinite;
+}
+
+@keyframes loadingFill {
+    0%, 100% { width: 0; }
+    50% { width: 100%; }
+}
+
+.coming-soon {
+    font-size: 1.25rem;
+    font-weight: 300;
+    opacity: 0.9;
+    max-width: 400px;
+    margin-bottom: 3rem;
+}
+
+.coming-soon span {
+    display: block;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+.divider span:first-child,
+.divider span:last-child {
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4));
+}
+
+.divider span:last-child {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.4), transparent);
+}
+
+.ball-icon {
+    font-size: 0.5rem;
+    color: var(--green-neon);
+}
+
+footer {
+    opacity: 0.6;
+    font-size: 0.9rem;
+}
+
+/* Floating decorative balls */
+.floating-elements {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.float-ball {
+    position: absolute;
+    font-size: 0.4rem;
+    color: rgba(61, 216, 106, 0.15);
+}
+
+.ball-1 { top: 15%; left: 10%; animation: float 8s ease-in-out infinite; }
+.ball-2 { top: 60%; right: 15%; animation: float 10s ease-in-out 2s infinite; }
+.ball-3 { bottom: 20%; left: 20%; animation: float 9s ease-in-out 4s infinite; }
+
+@keyframes float {
+    0%, 100% { transform: translate(0, 0); }
+    25% { transform: translate(20px, -20px); }
+    50% { transform: translate(-10px, -40px); }
+    75% { transform: translate(-20px, -10px); }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .loading-section {
+        max-width: 100%;
+        padding: 0 0.5rem;
+    }
+    
+    
+    .coming-soon {
+        font-size: 1.1rem;
+    }
+}
