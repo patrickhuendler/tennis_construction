@@ -5,6 +5,7 @@
     --green-bright: #2d8a4e;
     --green-neon: #3dd86a;
     --green-soft: #52c27a;
+    --logo-beige: #d4c9a8;
     --cream: #f5f7f0;
     --white-soft: rgba(255, 255, 255, 0.95);
 }
@@ -25,7 +26,7 @@ body {
     background: linear-gradient(135deg, var(--green-deep) 0%, var(--green-dark) 25%, var(--green-mid) 50%, var(--green-dark) 75%, var(--green-deep) 100%);
     background-size: 400% 400%;
     animation: gradientShift 12s ease infinite;
-    color: var(--cream);
+    color: var(--logo-beige);
     overflow-x: hidden;
 }
 
@@ -97,7 +98,7 @@ h1 {
     font-weight: 600;
     letter-spacing: 0.02em;
     margin-bottom: 2.5rem;
-    color: var(--cream);
+    color: var(--logo-beige);
 }
 
 .loading-section {
@@ -137,7 +138,7 @@ h1 {
     font-size: 1rem;
     font-weight: 600;
     letter-spacing: 0.15em;
-    color: var(--cream);
+    color: var(--logo-beige);
 }
 
 .loading-bar-fill {
@@ -179,11 +180,11 @@ h1 {
 .divider span:last-child {
     width: 60px;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4));
+    background: linear-gradient(90deg, transparent, rgba(212, 201, 168, 0.4));
 }
 
 .divider span:last-child {
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0.4), transparent);
+    background: linear-gradient(90deg, rgba(212, 201, 168, 0.4), transparent);
 }
 
 .ball-icon {
