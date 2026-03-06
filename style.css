@@ -241,7 +241,7 @@ footer {
 /* Responsive */
 @media (max-width: 600px) {
     :root {
-        --logo-offset-x: 0;
+        --logo-offset-x: 12px;
     }
     
     .container {
