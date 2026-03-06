@@ -1,4 +1,5 @@
 :root {
+    --logo-offset-x: 25px;  /* Logo-Verschiebung: nach rechts positiv, nach links negativ */
     --green-deep: #0d2818;
     --green-dark: #13461c;
     --green-mid: #1a5c2e;
@@ -76,20 +77,25 @@ body {
 /* Logo */
 .logo-mark {
     margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
 
 .club-logo {
-    max-width: 280px;
+    display: block;
+    max-width: 600px;
     height: auto;
     image-rendering: high-quality;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
+    transform: translateX(var(--logo-offset-x, 0));
     animation: ballFloat 4s ease-in-out infinite;
 }
 
 @keyframes ballFloat {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+    0%, 100% { transform: translateX(var(--logo-offset-x, 0)) translateY(0); }
+    50% { transform: translateX(var(--logo-offset-x, 0)) translateY(-10px); }
 }
 
 h1 {
